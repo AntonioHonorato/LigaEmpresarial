@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Jugador;
 use Illuminate\Http\Request;
 
-
 class JugadoresController extends Controller
 {
     /**
@@ -25,8 +24,7 @@ class JugadoresController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-
+    {
         return view('jugadores.create');
     }
 
@@ -48,9 +46,9 @@ class JugadoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Jugador $jugador)
     {
-        //
+
     }
 
     /**
@@ -59,8 +57,9 @@ class JugadoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jugador $jugador)
-    {
+    public function edit($id)
+    {   
+        $jugador = Jugador::find($id);
         return view('jugadores.edit', compact('jugador'));
     }
 
@@ -71,10 +70,12 @@ class JugadoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Jugador $jugadores)
+    public function update(Request $request, $id)
     {
-        $jugadores->update($request->all());
-        return response()->json($jugadores,200);
+        $jugador = Jugador::find($id);
+        $jugador->update($request->all());
+        
+        return response()->json($jugador,200);
     }
 
     /**
@@ -83,9 +84,11 @@ class JugadoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jugador $jugador)
+    public function destroy($id)
     {
+        $jugador = Jugador::find($id);
         $jugador->update(['activo'=>0]);
+        
         return response()->json($jugador,200);
     }
 }
