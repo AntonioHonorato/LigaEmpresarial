@@ -32,40 +32,4 @@
 
 @section('js')
 
-    <script>
-        $('.btnDelete').click(function(e){
-                    let id  = $(this).data('id');
-
-                    $('#modalDelete').modal({
-                        closable  : false,
-                        onDeny    : function(){
-                        
-                        },
-                        onApprove : function() {
-                    
-                            $.ajax({
-                                url : "/grupos/"+id,
-                                type : "DELETE",
-                                headers: {
-                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                },
-                                success : function(response){
-                                    iziToast.success({
-                                        title: 'OK',
-                                        message: 'El registro se ha eliminado exitosamente',
-                                    });
-
-                                    $('#modalDelete').modal('hide');
-                                },
-                                error: function(e){
-                                  console.error(e);
-                                }
-                              });
-
-                        }
-                    }).modal('show');
-                }
-            )
-    </script>  
-
 @endsection

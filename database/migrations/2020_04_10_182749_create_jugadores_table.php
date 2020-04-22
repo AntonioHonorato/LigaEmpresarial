@@ -19,7 +19,9 @@ class CreateJugadoresTable extends Migration
             $table->string('apaterno');
             $table->string('amaterno');
             $table->string('dorsal');
-            $table->date('fechaNacimiento');
+            $table->date('fecha_nacimiento');
+            $table->unsignedBigInteger('id_equipo');
+            $table->foreign('id_equipo')->references('id')->on('equipos');
             $table->boolean('activo')->default(1);
             $table->timestamps();
         });

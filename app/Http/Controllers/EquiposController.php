@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Equipo;
+use App\Grupo;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\DocBlock\Description;
 
 class EquiposController extends Controller
 {
@@ -12,10 +14,21 @@ class EquiposController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $equipos = Equipo::Activo()->get();
-        return view('equipos.index', compact('equipos'));
+        //$request->q;
+        if($request->ajax()){
+            $equipos=Equipo::Activo()->where('equipo','like','%'.$request->q.'%')->get();
+            $result = $equipos->map(function($item, $key){
+                return ['title'=>$item->equipo, 'id'=>$item->id,'description'=>'Hola mundo'];
+
+            });
+
+            return response()->json($result);   
+        }else{
+            $equipos = Equipo::Activo()->get();
+            return view('equipos.index', compact('equipos'));
+        }
     }
 
     /**
@@ -25,7 +38,8 @@ class EquiposController extends Controller
      */
     public function create()
     {
-        return view('equipos.create');
+        $grupos = Grupo::all();
+        return view('equipos.create',compact('grupos'));
     }
 
     /**

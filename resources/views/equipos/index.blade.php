@@ -8,65 +8,39 @@
         Agregar equipo
     </a>
 
-    <table class="ui table">
+
+<table id="example" class="ui celled table" style="width:100%">
         <thead>
             <tr>
                 <th>EQUIPO</th>
                 <th>CAPACIDAD</th>
-                <th colspan="2">ACCIONES</th>
+                <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($equipos as $item)
-                <tr>
-                    <td>{{$item->equipo}}</td>
-                    <td>{{$item->capacidad}}</td>
-                    <td><a class="ui button" href="/equipos/{{$item->id}}/edit"><i class="edit icon"></i></a></td>
-                    <td><div class="ui button btnDelete" data-id="{{$item->id}}"><i class="delete icon"></i></div></td>  
-                </tr>
-            @endforeach
-        </tbody>
+                @foreach($equipos as $item)
+                    <tr>
+                        <td>{{$item->equipo}}</td>
+                        <td>{{$item->capacidad}}</td>
+                        <td>
+                            <div class="ui icon dropdown">
+                                <i class="bars icon"></i>
+                                <div class="menu">
+                                  <div class="item"><a href="/equipos/{{$item->id}}/edit"><i class="edit icon"></i>Editar</a></div>
+                                  <div class="item"><div class="btnDelete" data-id="{{$item->id}}"><i class="delete icon"></i>Eliminar</div></div>
+                                  </div>
+                                </div>
+                            </td>  
+                    </tr>
+                @endforeach
+            </tbody>
     </table>
+
+    
 </div>
     @include('modalDelete')
 @endsection
 
 @section('js')
-
-    <script>
-        $('.btnDelete').click(function(e){
-                    let id  = $(this).data('id');
-
-                    $('#modalDelete').modal({
-                        closable  : false,
-                        onDeny    : function(){
-                        
-                        },
-                        onApprove : function() {
-                    
-                            $.ajax({
-                                url : "/equipos/"+id,
-                                type : "DELETE",
-                                headers: {
-                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                },
-                                success : function(response){
-                                    iziToast.success({
-                                        title: 'OK',
-                                        message: 'El registro se ha eliminado exitosamente',
-                                    });
-
-                                    $('#modalDelete').modal('hide');
-                                },
-                                error: function(e){
-                                  console.error(e);
-                                }
-                              });
-
-                        }
-                    }).modal('show');
-                }
-            )
-    </script>  
 
 @endsection

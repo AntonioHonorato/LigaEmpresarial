@@ -7,10 +7,9 @@
     <form class="ui form" id="jugadores">
         
                         <div class="field">
-                          <label>Nombre</label>
-                          <input type="text" name="nombre" placeholder="Nombre">
+                          
                         </div>
-                        <div class="two fields">
+                        <div class="three fields">
                                 <div class="field">
                                         <label>Apellido paterno</label>
                                         <input type="text" name="apaterno" placeholder="Apellido paterno">
@@ -19,18 +18,35 @@
                                           <label>Apellido materno</label>
                                           <input type="text" name="amaterno" placeholder="Apellido materno">
                                       </div>
+                                      <div class="field">
+                                            <label>Nombre</label>
+                                            <input type="text" name="nombre" placeholder="Nombre">
+                                      </div>
                         </div>
-                        <div class="two fields">
+                        <div class="four fields">
                                 <div class="field">
                                         <label>Dorsal</label>
                                         <input type="text" name="dorsal" placeholder="Dorsal">
                                       </div>
+                                      <div class="field">
+                                            <label>Posicion</label>
+                                            <input type="text" name="posicion" placeholder="Posicion">
+                                          </div>
                                 <div class="field">
                                     <label>Fecha nacimiento</label>
                                     <input type="date" name="fechaNacimiento" placeholder="Fecha de nacimiento">
                                 </div>
+                                <div class="field">
+                                    <label>Equipo</label>
+                                    <div class="ui search">
+                                            <div class="ui left input">
+                                              <input class="prompt" type="text" placeholder="Buscar equipo">
+                                            </div>
+                                        </div>
+                                </div>
                         </div>
-                        
+
+                            </br>
                         
                         <button class="ui primary button">
                             <i class="save icon"></i>
@@ -68,7 +84,7 @@
                     ]
                 },
                 fechaNacimiento:{
-                    identifer:'fechaNacimiento',
+                    identifer:'fecha_nacimiento',
                     rules:[{type:'empty', prompt:'Agregar fecha de nacimiento'},
                     ]
                 }

@@ -25,7 +25,7 @@ class GruposController extends Controller
      */
     public function create()
     {
-        return view('grupos.create');
+        return view('grupos.create', compact('grupos'));
     }
 
     /**

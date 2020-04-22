@@ -1,9 +1,9 @@
-<!--
+
 @extends('layouts.app')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="ui container">
+    <div class="field justify-content-center">
+        <div class="">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -21,7 +21,6 @@
     </div>
 </div>
 @endsection
--->
 
 <!--<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>

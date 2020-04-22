@@ -4,7 +4,7 @@
 
 <div class="ui container">
     <form class="ui form" id="equipos">
-        <div class="two fields">
+        <div class="three fields">
             <div class="field">
                 <label>Equipo</label>
                 <input type="text" name="equipo" placeholder="Equipo">
@@ -12,6 +12,20 @@
             <div class="field">
                 <label>Capacidad</label>
                 <input type="text" name="capacidad" placeholder="Capacidad del equipo">
+            </div>
+            <div class="field">
+                <label>Grupo</label>
+                <div class="ui search" id="grupo">
+                        <div class="ui left input">
+                          <select name="grupo_id" id="grupo_id">
+                              <option value="">--Escoger el grupo</option>
+                              @foreach($grupos as $grupo)
+                                <option value="{{$grupo['id']}}">{{ $grupo['nombre'] }}</option>
+                              @endforeach
+                          </select>
+
+                        </div>
+                    </div>
             </div>
         </div>
         <button class="ui primary button">
