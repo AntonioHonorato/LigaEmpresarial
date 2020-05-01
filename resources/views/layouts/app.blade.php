@@ -17,20 +17,25 @@
 <body>
     <div class="ui container">
             <div class="ui inverted menu">
-                    <a class="active item" href="/grupos">
+                      <a class="item" href="/tipostorneos">
+                        Tipos de torneo
+                    </a>
+                    
+                    <a class="item" href="/grupos">
                       Grupos
                     </a>
                     <a class="item" href="/equipos">
                       Equipos
                     </a>
-                    <a class="item" href="/jugadores">
-                      Jugadores
-                    </a>
-                    <a class="item" href="/jugadores">
-                      Tarjetas
-                    </a>
-                  </div>
-
+                    <a class="item" href="/cedes">
+                      Cedes
+                      <a class="item" href="/jugadores">
+                        Jugadores
+                      </a>
+                      <a class="item" href="/jugadores">
+                        Tarjetas
+                      </a>   
+            </div>
       </div>
 </br>
     @yield('content')

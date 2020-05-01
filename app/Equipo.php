@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Equipo extends Model
 {   
-    protected $fillable = ['equipo','capacidad','activo'];
+    protected $fillable = ['equipo','activo'];
     protected $table = 'equipos';
 
     //selector en la base de datos

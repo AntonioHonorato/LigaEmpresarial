@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Grupo extends Model
 {
-    protected $fillable = ['nombre','id_equipo','id_torne','activo'];
+    protected $fillable = ['nombre','id_torneo','activo'];
     protected $table = 'grupos';
 
     public function scopeActivo($query){

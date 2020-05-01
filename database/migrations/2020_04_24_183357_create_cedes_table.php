@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTorneosTable extends Migration
+class CreateCedesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateTorneosTable extends Migration
      */
     public function up()
     {
-        Schema::create('torneos', function (Blueprint $table) {
+        Schema::create('cedes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('jugadores');
-            $table->date('fecha_inicio');
-            $table->date('fecha_final');
-            //$table->unsignedBigInteger('tpo_torne_id');
-            //$table->foreign('id_tipotorneo','fk_torneos_tipotorneo_idx')->references('id');
             $table->boolean('activo')->default(1);
             $table->timestamps();
         });
@@ -33,6 +28,6 @@ class CreateTorneosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('torneos');
+        Schema::dropIfExists('cedes');
     }
 }

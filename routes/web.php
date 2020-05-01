@@ -14,12 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Route::get('/', 'EquiposController');
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+//Auth::routes();
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Route::middleware(['auth'])->group(function(){
+//Route::middleware(['auth'])->group(function(){
     Route::resource('/equipos', 'EquiposController');
     Route::resource('/jugadores', 'JugadoresController');
     Route::resource('/grupos','GruposController');
     Route::resource('/tarjetas','TarjetasController');
-});
+    Route::resource('/cedes', 'CedesController');
+    Route::resource('/tipostorneos', 'TiposTorneosController');
+    
+    
+//});

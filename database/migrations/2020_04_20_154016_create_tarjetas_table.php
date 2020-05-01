@@ -17,8 +17,9 @@ class CreateTarjetasTable extends Migration
             $table->id();
             $table->boolean('tamarilla')->default(0);
             $table->boolean('troja')->default(0);
-            $table->unsignedBigInteger('id_jugador');
-            $table->foreign('id_jugador')->references('id')->on('jugadores');
+            $table->boolean('activo')->default(1);
+            //$table->unsignedBigInteger('id_jugador');
+            //$table->foreign('id_jugador')->references('id')->on('jugadores');
             $table->timestamps();
         });
     }

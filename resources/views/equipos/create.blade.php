@@ -52,6 +52,11 @@
                 identifer:'capacidad',
                 rules:[{type:'empty',promt:'Agregar la capacidad del equipo'},
                 ]
+            },
+            grupo:{
+                identifer:'id_grupo',
+                rules:[{type:'empty',promt:'Agrega el grupo'},
+                ]
             }
         },
         onSuccess: function(event,fields){
